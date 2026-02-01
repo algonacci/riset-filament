@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [ // Guard khusus admin <--- TAMBAH INI
+            'driver' => 'session',
+            'provider' => 'cms_users',
+        ],
     ],
 
     /*
@@ -64,7 +68,10 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
-
+        'cms_users' => [ // User Admin khusus <--- TAMBAH INI
+            'driver' => 'eloquent',
+            'model' => App\Models\LaravelCmsUser::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

@@ -52,6 +52,8 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->authGuard('admin') // <--- PENTING: Pakai guard 'admin'
+            ->authPasswordBroker('laravel_cms_users') // Opsional, buat reset password
             ->authMiddleware([
                 Authenticate::class,
             ]);
